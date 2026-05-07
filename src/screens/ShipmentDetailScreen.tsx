@@ -5,7 +5,6 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
@@ -14,8 +13,9 @@ import Header from '../components/Header';
 import CustomText from '../components/CustomText';
 import CustomButton from '../components/CustomButton';
 import ImageCard from '../components/ImageCard';
-import { COLORS } from '../assets/constants';
-import { rf, wp, hp } from '../utils/responsive';
+import DeleteImageModal from '../components/DeleteImageModal';
+import { COLORS, FONTS, FontSize } from '../assets/constants';
+import { wp } from '../utils/responsive';
 import { usePhotoStore, type PhotoItem } from '../store/photoStore';
 import { useShipmentStore } from '../store/shipmentStore';
 import { useImagePicker } from '../hooks/useImagePicker';
@@ -33,6 +33,8 @@ const ShipmentDetailScreen: React.FC<{
 }> = ({ navigation, route }) => {
   const { shipmentId, bolNumber } = route.params;
   const [uploading, setUploading] = useState(false);
+  const [deleteImageModalVisible, setDeleteImageModalVisible] = useState(false);
+  const [selectedPhotoId, setSelectedPhotoId] = useState<string | null>(null);
   const insets = useSafeAreaInsets();
 
   const { addPhoto, removePhoto, getPhotos } = usePhotoStore();
@@ -60,21 +62,18 @@ const ShipmentDetailScreen: React.FC<{
     [photos.length, takePhoto, pickFromGallery, addPhoto, shipmentId],
   );
 
-  const handleRemove = useCallback(
-    (photoId: string) => {
-      Alert.alert('Remove Photo', 'Remove this photo from the list?', [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Remove',
-          style: 'destructive',
-          onPress: async () => {
-            await removePhoto(shipmentId, photoId);
-          },
-        },
-      ]);
-    },
-    [removePhoto, shipmentId],
-  );
+  const handleRemove = useCallback((photoId: string) => {
+    setSelectedPhotoId(photoId);
+    setDeleteImageModalVisible(true);
+  }, []);
+
+  const handleConfirmDelete = useCallback(async () => {
+    if (selectedPhotoId) {
+      await removePhoto(shipmentId, selectedPhotoId);
+      setDeleteImageModalVisible(false);
+      setSelectedPhotoId(null);
+    }
+  }, [selectedPhotoId, removePhoto, shipmentId]);
 
   const handleUpload = useCallback(async () => {
     if (!photos.length) {
@@ -125,18 +124,26 @@ const ShipmentDetailScreen: React.FC<{
       <ScrollView
         contentContainerStyle={[
           styles.scroll,
-          { paddingBottom: insets.bottom + hp(4) }, // vertical safe area → hp
+          { paddingBottom: insets.bottom + wp(4) }, // vertical safe area → hp
         ]}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
       >
         {/* BoL Number */}
         <View style={styles.section}>
-          <CustomText size={13} color={COLORS.greyText} weight="medium">
+          <CustomText
+            size={FontSize.normalText}
+            color={COLORS.primary}
+            style={{ fontFamily: FONTS.REGULAR }}
+          >
             BoL Number
           </CustomText>
           <View style={styles.bolContainer}>
-            <CustomText size={22} weight="bold" color={COLORS.primary}>
+            <CustomText
+              size={FontSize.largeText}
+              color={COLORS.primary}
+              style={{ fontFamily: FONTS.BOLD }}
+            >
               {bolNumber}
             </CustomText>
           </View>
@@ -145,8 +152,7 @@ const ShipmentDetailScreen: React.FC<{
         {/* Choose Photos */}
         <View style={styles.section}>
           <CustomText
-            size={15}
-            weight="semibold"
+            size={FontSize.normalText}
             color={COLORS.black}
             style={styles.sectionTitle}
           >
@@ -160,15 +166,19 @@ const ShipmentDetailScreen: React.FC<{
             >
               <Ionicons
                 name="camera-outline"
-                size={rf(30)} // icon size → rf
+                size={wp(10)} // icon size → rf
                 color={COLORS.primary}
-                style={{ marginRight: wp(3.5) }}
+                style={{ marginRight: wp(4) }}
               />
               <View>
-                <CustomText size={14} weight="semibold" color={COLORS.primary}>
+                <CustomText
+                  size={FontSize.normalText}
+                  style={{ fontFamily: FONTS.BOLD }}
+                  color={COLORS.primary}
+                >
                   Take Photo
                 </CustomText>
-                <CustomText size={12} color={COLORS.greyText}>
+                <CustomText size={FontSize.smallText} color={COLORS.primary}>
                   Open Camera
                 </CustomText>
               </View>
@@ -181,15 +191,19 @@ const ShipmentDetailScreen: React.FC<{
             >
               <Ionicons
                 name="images-outline"
-                size={rf(30)} // icon size → rf
+                size={wp(10)} // icon size → rf
                 color={COLORS.primary}
-                style={{ marginRight: wp(3.5) }}
+                style={{ marginRight: wp(4) }}
               />
               <View>
-                <CustomText size={14} weight="semibold" color={COLORS.primary}>
+                <CustomText
+                  size={FontSize.normalText}
+                  style={{ fontFamily: FONTS.BOLD }}
+                  color={COLORS.primary}
+                >
                   Choose from Gallery
                 </CustomText>
-                <CustomText size={12} color={COLORS.greyText}>
+                <CustomText size={FontSize.smallText} color={COLORS.primary}>
                   Select from device
                 </CustomText>
               </View>
@@ -200,8 +214,7 @@ const ShipmentDetailScreen: React.FC<{
         {/* Selected Photos */}
         <View style={styles.section}>
           <CustomText
-            size={15}
-            weight="semibold"
+            size={FontSize.normalText}
             color={COLORS.black}
             style={styles.sectionTitle}
           >
@@ -221,11 +234,11 @@ const ShipmentDetailScreen: React.FC<{
             <View style={styles.emptyPhotos}>
               <Ionicons
                 name="image-outline"
-                size={rf(36)} // icon size → rf
+                size={wp(10)} // icon size → rf
                 color={COLORS.greyText}
               />
               <CustomText
-                size={13}
+                size={FontSize.normalText}
                 color={COLORS.greyText}
                 style={styles.emptyText}
               >
@@ -234,7 +247,11 @@ const ShipmentDetailScreen: React.FC<{
             </View>
           )}
 
-          <CustomText size={12} color={COLORS.greyText} style={styles.hint}>
+          <CustomText
+            size={FontSize.smallMediumText}
+            color={COLORS.greyText}
+            style={styles.hint}
+          >
             You can add up to {MAX_PHOTOS} photos.
           </CustomText>
         </View>
@@ -247,6 +264,15 @@ const ShipmentDetailScreen: React.FC<{
           style={styles.uploadBtn}
         />
       </ScrollView>
+
+      <DeleteImageModal
+        visible={deleteImageModalVisible}
+        onCancel={() => {
+          setDeleteImageModalVisible(false);
+          setSelectedPhotoId(null);
+        }}
+        onConfirm={handleConfirmDelete}
+      />
     </View>
   );
 };
@@ -254,37 +280,31 @@ const ShipmentDetailScreen: React.FC<{
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.white,
   },
   scroll: {
     padding: wp(4), // uniform screen padding → wp
   },
   section: {
-    marginBottom: hp(3), // vertical margin → hp
+    marginBottom: wp(4), // vertical margin → hp
   },
   sectionTitle: {
-    marginBottom: hp(1.5), // vertical margin → hp
+    marginBottom: wp(2), // vertical margin → hp
+    fontFamily: FONTS.SEMIBOLD,
   },
-  bolContainer: {
-    backgroundColor: COLORS.white,
-    borderRadius: rf(10), // radius → rf
-    padding: wp(3.5), // uniform container padding → wp
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    marginTop: hp(1), // vertical margin → hp
-  },
+  bolContainer: {},
   photoOptions: {
     // vertical spacing handled via optionCard margin
   },
   optionCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: hp(1.5), // vertical spacing between option cards
+    marginBottom: wp(4), // vertical spacing between option cards
     backgroundColor: COLORS.white,
-    borderRadius: rf(12), // radius → rf
+    borderRadius: wp(2), // radius → rf
     padding: wp(4), // uniform card padding → wp
-    borderWidth: 1,
-    borderColor: COLORS.border,
+    borderWidth: wp(0.2), // border width → rf
+    borderColor: COLORS.primary,
   },
   photoGrid: {
     // spacing handled by individual ImageCard margin
@@ -292,20 +312,23 @@ const styles = StyleSheet.create({
 
   emptyPhotos: {
     backgroundColor: COLORS.white,
-    borderRadius: rf(10), // radius → rf
-    paddingVertical: hp(3), // vertical padding → hp
+    borderRadius: wp(2), // radius → rf
+    paddingVertical: wp(4), // vertical padding → hp
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: wp(0.5), // border width → rf
     borderColor: COLORS.border,
   },
   emptyText: {
-    marginTop: hp(1), // vertical margin → hp
+    fontFamily: FONTS.REGULAR,
+    marginTop: wp(2), // vertical margin → hp
   },
   hint: {
-    marginTop: hp(1.2), // vertical margin → hp
+    fontFamily: FONTS.REGULAR,
+    marginTop: wp(2), // vertical margin → hp
+    textAlign: 'center',
   },
   uploadBtn: {
-    marginTop: hp(1), // vertical margin → hp
+    marginTop: wp(4), // vertical margin → hp
   },
 });
 

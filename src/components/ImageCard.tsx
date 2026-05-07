@@ -10,7 +10,7 @@ interface ImageCardProps {
 }
 
 // Square thumbnail — width-driven so wp is the right anchor
-const IMAGE_SIZE = wp(26);
+const IMAGE_SIZE = wp(28);
 
 const ImageCard: React.FC<ImageCardProps> = ({ uri, onRemove }) => (
   <View style={styles.container}>
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 4,
     right: 4,
-    backgroundColor: COLORS.white,
-    borderRadius: wp(2), // radius → rf
   },
 });
 

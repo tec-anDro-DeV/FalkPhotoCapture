@@ -6,13 +6,13 @@ import CustomButton from './CustomButton';
 import { COLORS, FONTS, FontSize } from '../assets/constants';
 import { wp } from '../utils/responsive';
 
-interface LogoutModalProps {
+interface DeleteImageModalProps {
   visible: boolean;
   onCancel: () => void;
   onConfirm: () => void;
 }
 
-const LogoutModal: React.FC<LogoutModalProps> = ({
+const DeleteImageModal: React.FC<DeleteImageModalProps> = ({
   visible,
   onCancel,
   onConfirm,
@@ -31,25 +31,21 @@ const LogoutModal: React.FC<LogoutModalProps> = ({
     >
       <TouchableOpacity activeOpacity={1} style={styles.card}>
         <View style={styles.iconContainer}>
-          <Ionicons
-            name="log-out-outline"
-            size={wp(12)}
-            color={COLORS.primary}
-          />
+          <Ionicons name="trash-outline" size={wp(12)} color={COLORS.primary} />
         </View>
         <CustomText
           size={FontSize.mediumLargeText}
           color={COLORS.primary}
           style={styles.title}
         >
-          Logout
+          Remove Photo
         </CustomText>
         <CustomText
           size={FontSize.normalText}
           color={COLORS.greyText}
           style={styles.message}
         >
-          Are you sure you want to logout?
+          Are you sure you want to remove this photo?
         </CustomText>
         <View style={styles.buttons}>
           <CustomButton
@@ -59,7 +55,7 @@ const LogoutModal: React.FC<LogoutModalProps> = ({
             style={[styles.btn, { marginRight: wp(3) }]}
           />
           <CustomButton
-            title="Logout"
+            title="Remove"
             variant="filled"
             onPress={onConfirm}
             style={styles.btn}
@@ -76,12 +72,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.overlay,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: wp(6), // horizontal padding → wp
+    paddingHorizontal: wp(6),
   },
   card: {
     backgroundColor: COLORS.white,
-    borderRadius: wp(4), // radius → rf
-    padding: wp(6), // uniform card padding → wp
+    borderRadius: wp(4),
+    padding: wp(6),
     width: '100%',
     alignItems: 'center',
   },
@@ -95,23 +91,22 @@ const styles = StyleSheet.create({
     marginBottom: wp(4),
   },
   title: {
-    marginBottom: wp(1), // vertical margin → hp
+    marginBottom: wp(1),
     fontFamily: FONTS.BOLD,
     textAlign: 'center',
   },
   message: {
-    marginBottom: wp(3), // vertical margin → hp
-    lineHeight: wp(6), // line-height is text-related → rf
+    marginBottom: wp(3),
+    lineHeight: wp(6),
     textAlign: 'center',
   },
   buttons: {
     flexDirection: 'row',
     marginTop: wp(3),
-    // spacing via margin on individual buttons
   },
   btn: {
     flex: 1,
   },
 });
 
-export default memo(LogoutModal);
+export default memo(DeleteImageModal);

@@ -35,7 +35,7 @@ export const MOCK_SHIPMENTS: Shipment[] = [
     bolNumber: 'BOL123453',
     date: '19 May 2025',
     status: 'Pending',
-    photoCount: 15,
+    photoCount: 0,
   },
   {
     id: '5',
