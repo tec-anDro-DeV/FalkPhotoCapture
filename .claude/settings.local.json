@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"d:\\\\Kaivan\\\\React Native\\\\FalkPhotoCapture\" -Depth 1 | Where-Object { $_.PSIsContainer -or $_.Extension -in @\\('.json', '.js', '.tsx', '.ts'\\) } | Format-Table Name, PSIsContainer)",
+      "PowerShell($root = \"d:\\\\Kaivan\\\\React Native\\\\FalkPhotoCapture\"; $items = Get-ChildItem -Path $root -Force; $items | Where-Object { !$_.Name.StartsWith\\('.'\\) -or $_.Name -in @\\('.eslintrc.js', '.gitignore', '.prettierrc.js', '.watchmanconfig'\\) } | Select-Object Name | Sort-Object)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const I = require\\('@react-native-vector-icons/ionicons'\\); console.log\\(Object.keys\\(I\\)\\)\")",
+      "Bash(Get-ChildItem \"d:\\\\Kaivan\\\\React Native\\\\FalkPhotoCapture\\\\node_modules\\\\@react-native-vector-icons\\\\ionicons\")",
+      "Bash(Select-Object Name)",
+      "Bash(cmd /c \"rd /s /q \\\\\"d:\\\\Kaivan\\\\React Native\\\\FalkPhotoCapture\\\\android\\\\\"\")",
+      "Bash(echo \"Exit: $?\")",
+      "PowerShell(Get-Process -Name \"java\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process -Name \"gradle\" -ErrorAction SilentlyContinue)",
+      "Bash(cmd /c \"rmdir \\\\\"d:\\\\Kaivan\\\\React Native\\\\FalkPhotoCapture\\\\android\\\\\"\")",
+      "Bash(npx react-native@0.85.3 init FalkPhotoCapture --skip-install)",
+      "Bash(npx @react-native-community/cli@20.1.0 init FalkPhotoCapture --skip-install)"
+    ]
+  }
+}
