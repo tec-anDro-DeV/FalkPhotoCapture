@@ -63,8 +63,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 
 const styles = StyleSheet.create({
   base: {
-    height: hp(6.2), // height → hp
-    borderRadius: rf(10), // radius → rf
+    height: wp(12), // height → hp
+    borderRadius: wp(2), // radius → rf
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: wp(4), // horizontal padding → wp
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   outline: {
     backgroundColor: 'transparent',
-    borderWidth: 1.5,
+    borderWidth: wp(0.4), // border width → wp
     borderColor: COLORS.primary,
   },
   disabled: {

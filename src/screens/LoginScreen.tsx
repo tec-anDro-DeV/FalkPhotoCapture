@@ -62,7 +62,7 @@ const LoginScreen: React.FC = () => {
           contentContainerStyle={[
             styles.scroll,
             {
-              paddingTop: insets.top + wp(20),
+              paddingTop: insets.top + wp(15),
               paddingBottom: insets.bottom + wp(6),
             },
           ]}
@@ -76,14 +76,14 @@ const LoginScreen: React.FC = () => {
               FALK
             </CustomText> */}
             <CustomText
-              size={FontSize.xxLargeText}
+              size={FontSize.hugeText}
               color={COLORS.black}
               style={styles.logoSubtitle}
             >
               Login
             </CustomText>
             <CustomText
-              size={FontSize.smallMediumText}
+              size={FontSize.normalText}
               color={COLORS.primary}
               style={styles.tagline}
             >
@@ -124,11 +124,11 @@ const LoginScreen: React.FC = () => {
           </View>
 
           <CustomText
-            size={FontSize.smallMediumText}
+            size={FontSize.normalText}
             color={COLORS.primary}
             style={styles.version}
           >
-            Ver. 1.0.0
+            Version. 1.0
           </CustomText>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     marginBottom: wp(5), // vertical margin → hp
   },
   logoSubtitle: {
-    marginTop: wp(10), // vertical margin → hp
+    marginTop: wp(6), // vertical margin → hp
     fontFamily: FONTS.SEMIBOLD,
   },
   tagline: {

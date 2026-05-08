@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     borderWidth: wp(0.5), // border width → wp
     borderColor: COLORS.border,
     paddingHorizontal: wp(3), // horizontal padding → wp
-    height: wp(14), // height → hp
+    height: wp(12), // height → hp
   },
   leftIcon: {
     marginRight: wp(2), // horizontal margin → wp
