@@ -62,10 +62,10 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SF-Pro-Display-Bold.otf</string>
-		<string>SF-Pro-Display-Medium.otf</string>
-		<string>SF-Pro-Display-Regular.otf</string>
-		<string>SF-Pro-Display-Semibold.otf</string>
+		<string>Bould-Bold.ttf</string>
+		<string>Bould-Medium.ttf</string>
+		<string>Bould-Regular.ttf</string>
+		<string>Bould-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

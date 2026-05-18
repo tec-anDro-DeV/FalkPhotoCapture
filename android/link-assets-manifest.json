@@ -2,20 +2,20 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/SF-Pro-Display-Bold.otf",
-      "sha1": "100e7b7fd24facbca4db38e6d4d7e01c73b82818"
+      "path": "src/assets/fonts/Bould-Bold.ttf",
+      "sha1": "e5e7a58120b15954edfb9a11f641e1005c7341ea"
     },
     {
-      "path": "src/assets/fonts/SF-Pro-Display-Medium.otf",
-      "sha1": "a5f5e08dd38cac2f857fb7510f7e92a2399b6f5c"
+      "path": "src/assets/fonts/Bould-Medium.ttf",
+      "sha1": "53b9c0d56832cc023e84301f0efc43d7578cc58a"
     },
     {
-      "path": "src/assets/fonts/SF-Pro-Display-Regular.otf",
-      "sha1": "e19df199e78d296e5b6491d4832a76756532ed43"
+      "path": "src/assets/fonts/Bould-Regular.ttf",
+      "sha1": "a85e5a9de4c0afa6810baed903574e2f86744b05"
     },
     {
-      "path": "src/assets/fonts/SF-Pro-Display-Semibold.otf",
-      "sha1": "1919ecaa21bd612d41f8eeef6ccec2f28ad029f6"
+      "path": "src/assets/fonts/Bould-SemiBold.ttf",
+      "sha1": "865c57f8daeec83d19d7bbef69f00da7989df18c"
     }
   ]
 }

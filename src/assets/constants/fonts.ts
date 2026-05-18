@@ -1,9 +1,9 @@
 export const FONTS = {
-  BOLD: 'SF-Pro-Display-Bold',
+  BOLD: 'Bould-Bold',
 
-  MEDIUM: 'SF-Pro-Display-Medium',
+  MEDIUM: 'Bould-Medium',
 
-  REGULAR: 'SF-Pro-Display-Regular',
+  REGULAR: 'Bould-Regular',
 
-  SEMIBOLD: 'SF-Pro-Display-Semibold',
+  SEMIBOLD: 'Bould-SemiBold',
 };

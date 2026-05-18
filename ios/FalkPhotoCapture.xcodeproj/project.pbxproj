@@ -15,6 +15,10 @@
 		28637DBA1630488C929EC7CE /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27B4A9075B5541C2A6D80716 /* SF-Pro-Display-Medium.otf */; };
 		0CF0EFA261ED42A094B99EF1 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32C6483F25D643D9AC0060D7 /* SF-Pro-Display-Regular.otf */; };
 		F210C23BFC9740A9B7332D44 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC5B01A732412C9E30235C /* SF-Pro-Display-Semibold.otf */; };
+		3462639D60794D9890732ACC /* Bould-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A36AFF9D14D4FCBADD7ACA5 /* Bould-Bold.ttf */; };
+		1EE0F8092C4E47E0A0A2A129 /* Bould-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A468B7E1064F4845B80BE111 /* Bould-Medium.ttf */; };
+		ACE4F9921CFD4A0299422642 /* Bould-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FA8919B12324044BED757E4 /* Bould-Regular.ttf */; };
+		4FF86358AFF3446AADB56384 /* Bould-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F31A6D461D5B4D71A2B2564B /* Bould-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		27B4A9075B5541C2A6D80716 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; name = "SF-Pro-Display-Medium.otf"; path = "../src/assets/fonts/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		32C6483F25D643D9AC0060D7 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; name = "SF-Pro-Display-Regular.otf"; path = "../src/assets/fonts/SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		2CEC5B01A732412C9E30235C /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; name = "SF-Pro-Display-Semibold.otf"; path = "../src/assets/fonts/SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3A36AFF9D14D4FCBADD7ACA5 /* Bould-Bold.ttf */ = {isa = PBXFileReference; name = "Bould-Bold.ttf"; path = "../src/assets/fonts/Bould-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A468B7E1064F4845B80BE111 /* Bould-Medium.ttf */ = {isa = PBXFileReference; name = "Bould-Medium.ttf"; path = "../src/assets/fonts/Bould-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2FA8919B12324044BED757E4 /* Bould-Regular.ttf */ = {isa = PBXFileReference; name = "Bould-Regular.ttf"; path = "../src/assets/fonts/Bould-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F31A6D461D5B4D71A2B2564B /* Bould-SemiBold.ttf */ = {isa = PBXFileReference; name = "Bould-SemiBold.ttf"; path = "../src/assets/fonts/Bould-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,10 @@
 				27B4A9075B5541C2A6D80716 /* SF-Pro-Display-Medium.otf */,
 				32C6483F25D643D9AC0060D7 /* SF-Pro-Display-Regular.otf */,
 				2CEC5B01A732412C9E30235C /* SF-Pro-Display-Semibold.otf */,
+				3A36AFF9D14D4FCBADD7ACA5 /* Bould-Bold.ttf */,
+				A468B7E1064F4845B80BE111 /* Bould-Medium.ttf */,
+				2FA8919B12324044BED757E4 /* Bould-Regular.ttf */,
+				F31A6D461D5B4D71A2B2564B /* Bould-SemiBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -184,6 +196,10 @@
 				28637DBA1630488C929EC7CE /* SF-Pro-Display-Medium.otf in Resources */,
 				0CF0EFA261ED42A094B99EF1 /* SF-Pro-Display-Regular.otf in Resources */,
 				F210C23BFC9740A9B7332D44 /* SF-Pro-Display-Semibold.otf in Resources */,
+				3462639D60794D9890732ACC /* Bould-Bold.ttf in Resources */,
+				1EE0F8092C4E47E0A0A2A129 /* Bould-Medium.ttf in Resources */,
+				ACE4F9921CFD4A0299422642 /* Bould-Regular.ttf in Resources */,
+				4FF86358AFF3446AADB56384 /* Bould-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
